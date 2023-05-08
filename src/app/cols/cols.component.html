@@ -1,0 +1,265 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="isExpanded = !isExpanded">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 class="example-app-name">AG GRID</h1>
+</mat-toolbar>
+<main>
+  <nav class="section-nav">
+    <ol>
+      <li><a href="#introduction">Overview</a></li>
+      <li><a href="#request-response">Angular Compatibility</a></li>
+      <!-- <li><a href="#authentication">Authentication</a></li> -->
+      <li><a href="#endpoints">Columns</a>
+        <ul>
+          <li class=""><a href="#endpoints--root">Column Definition</a></li>
+          <li class=""><a href="#endpoints--cities-overview">Column Groups</a></li>
+          <li class=""><a href="#endpoints--city-detail">Column Moving </a></li>
+          <li class=""><a href="#endpoints--city-config">Column Spanning </a></li>
+          <li class=""><a href="#endpoints--city-spots-overview">Column Pinning </a></li>
+          <!-- <li class=""><a href="#endpoints--city-spot-detail">City Spot Detail</a></li>
+          <li class=""><a href="#endpoints--city-icons-overview">City Icons Overview</a></li>
+          <li class=""><a href="#endpoints--city-icon-detail">City Icon Detail</a></li> -->
+        </ul>
+      </li>
+      <li class=""><a href="#links">Rows</a></li>
+      <li class=""><a href="#expanders">Layout and Styling</a></li>
+      <!-- <li class=""><a href="#filters">Filters</a></li> -->
+    </ol>
+  </nav>
+  <div class="content">
+    <h1>AG Grid in Brief </h1>
+    <!-- <p><em>Want an explanation of how this works?<br />&rarr; <a href="https://www.bram.us/2020/01/10/smooth-scrolling-sticky-scrollspy-navigation/" target="_top">https://www.bram.us/2020/01/10/smooth-scrolling-sticky-scrollspy-navigation/</a></em></p> -->
+    <section class="content1" id="introduction">
+      <h2>Overview</h2>
+      <p> AG Grid is a powerful and flexible data grid for building enterprise web applications using Angular. It is designed to handle large and complex data sets, and provides a wide range of features and customization options to create high-performance grids.
+
+        AG Grid for Angular provides a set of Angular components that enable developers to easily integrate the grid into their applications. The components include the Grid component, which is the main component used to render the grid, and several other components that provide additional functionality, such as filtering, sorting, pagination, and grouping.
+        
+        AG Grid provides a rich set of features, such as row selection, column grouping, cell editing, cell formatting, and custom cell rendering. It also supports virtualization, which allows it to efficiently render large data sets without affecting the performance of the application.
+        
+        AG Grid can be easily customized to meet the specific requirements of different applications. It provides a range of customization options, such as custom cell editors and renderers, custom filtering and sorting, and the ability to style the grid using CSS.
+        
+        AG Grid also provides a comprehensive set of APIs that enable developers to programmatically interact with the grid, and events that allow them to respond to user actions and changes in the data.
+        
+        Overall, AG Grid is a powerful and flexible data grid for building enterprise web applications using Angular, with a rich set of features, customization options, and APIs.</p>
+    </section>
+
+    <section  class="content2" id="request-response">
+      <h2>Angular Compatibility</h2>
+      <p>
+        To use AG Grid with Angular, you will need to install the ag-grid-angular package from npm and import it into your Angular module. You will also need to import the AgGridModule and call AgGridModule.withComponents([]) to register any custom cell renderers or editors that you may have.
+
+        Here's an example of how to import AG Grid into an Angular module:
+      </p>
+        <img class="img-responsive" src="assets/images/angularCompatibility.PNG">
+      <p>
+        In this example, we have imported AgGridModule from ag-grid-angular and called AgGridModule.withComponents([]) to register any custom cell renderers or editors. We have also imported AppComponent and declared it in the module.
+      </p>
+      
+    </section>
+    <!-- <section id="authentication">
+      <h2>Authentication</h2>
+      <p>…</p>
+    </section> -->
+    <h2>Columns</h2>
+    <section class="content3" id="Columns">
+      
+      <section id="endpoints--root">
+        <h3>Column Definition </h3>
+        <p>
+          Column definition is an object that defines the properties and behavior of a column in the grid. A column definition is typically defined as an array of objects, with each object representing a column. 
+
+          Here is an example of a column definition object: 
+        </p>
+        <img class="img-responsive" src="assets/images/coldefTsfile.PNG">
+        <p>
+          In this example, columnDefs is an array of column definitions, with each object representing a column. The properties of each column definition include: 
+
+          headerName: The text to display in the column header. 
+
+          field: The name of the property in the data that will be displayed in the column. 
+
+          sortable: Whether the column can be sorted. 
+
+          filter: Whether the column can be filtered. 
+
+          The above code defines four columns: "Make", "Model", "Year", and "Price". Each column is sortable and filterable, and the data to display in each column will come from the make, model, year, and price properties of the data objects. 
+
+          Column definitions can also include additional properties to configure more advanced features of AG Grid, such as grouping, aggregation, and formatting. By defining columns separately from the data, you can create more flexible and reusable grid configurations. 
+
+          Once a column definition is defined, it can be passed to the ag-grid-angular component as a property, like this:
+        </p>
+        <img class="img-responsive" src="assets/images/coldefHtmlfile.PNG">
+        <p>
+          This will create a grid with the columns defined in the columnDefs array, using the row data defined in the rowData array.
+        </p>
+                          
+      </section>
+
+
+      <section id="endpoints--cities-overview">
+        <h3>Column Groups </h3>
+        <p>
+          Column grouping is a powerful feature in AG Grid for Angular that allows developers to group related columns together and display them as a single header. Column grouping can be used to create more organized and structured grids, particularly when dealing with large data sets.
+
+          To define a column group in AG Grid for Angular, we can use a Column Definition object that has a children property. The children property is an array of child Column Definition objects that define the columns to be included in the group. The parent Column Definition object specifies the properties of the group header.
+
+          Here's an example of a column group:
+        </p>
+        <img class="img-responsive" src="assets/images/colgpTsfile.PNG">
+        <p>
+          In this example, we have defined two column groups: "Personal Info" and "Location Info". Each group has its own header and contains child columns.
+
+          To display the grid with column groups, we can pass the columnDefs array to the ag-grid-angular component as a property, like this:
+        </p>
+        <img class="img-responsive" src="assets/images/colgpHtmlfile.PNG">
+        <p>
+          AG Grid also provides several features for working with column groups, such as collapsing and expanding the groups, sorting and filtering within the groups, and applying styles to the group headers.
+        </p>
+      </section>
+      <section id="endpoints--city-detail">
+        <h3>Column Moving </h3>
+        <p>
+          Column Moving in AG Grid for Angular allows users to move columns to different positions in the grid by dragging and dropping them with the mouse. This feature is useful when working with large datasets where users may want to view specific data in a particular order.
+
+          By default, column moving is enabled in AG Grid, and users can move columns by clicking and dragging on the column header. When a column is being moved, a preview of the column is shown, and a drop zone is displayed where the column can be dropped.
+
+          You can also customize the behavior of column moving by configuring the following properties in the column definition:
+
+          movable: Set to false to disable moving for a specific column.
+          lockPosition: Set to true to prevent a column from being moved out of its initial position.
+          suppressMovableColumns: Set to true on the grid options to disable column moving for all columns.
+          Here's an example of how to disable moving for a specific column:
+        </p>
+        <img class="img-responsive" src="assets/images/colmovTsfile.PNG">
+        <p>
+          In this example, the "Year" column is not movable, so users will not be able to drag it to a different position in the grid.
+        </p>
+        <!-- <img class="img-responsive" src="assets/images/coldefHtmlfile.PNG">
+        <p>
+          
+        </p> -->
+      </section>
+      <section id="endpoints--city-config">
+        <h3>Column Spanning </h3>
+        <p>
+          Column Spanning in AG Grid for Angular allows you to merge cells in the header row of the grid, which can be useful for displaying hierarchical data or for creating complex header structures.
+
+          To span columns, you need to define the columns as a group and set the headerName property to an object containing the name and mergeAcross properties. The name property is the display name of the group, and the mergeAcross property specifies the number of columns to span.
+          
+          Here's an example of how to span two columns using column grouping:
+        </p>
+        <img class="img-responsive" src="assets/images/colspanTsfile.PNG">
+        <p>
+          In this example, the "Make" column is pinned to the left, so it will remain fixed in its position while the other columns scroll horizontally.
+
+          You can also pin multiple columns by setting the pinned property to 'left' or 'right' for each column. Additionally, you can customize the behavior of column pinning by configurinIn this example, the "Details" header is defined as a column group, and the "Price" column has a headerName object with the name property set to "Details" and the mergeAcross property set to 1, which means it will span one column to the right.
+
+          You can also span multiple columns by setting the mergeAcross property to a higher number, or span columns to the left by using a negative number. Additionally, you can customize the behavior of column spanning by configuring other properties in the column definition, such as headerClass and headerGroupComponent.g other properties in the column definition, such as pinnedRowCellRenderer and pinnedRowCellRendererParams.
+        </p>
+        <!-- <img class="img-responsive" src="assets/images/coldefHtmlfile.PNG">
+        <p>
+          
+        </p> -->
+      </section>
+      <section id="endpoints--city-spots-overview">
+        <h3>Column Pinning </h3>
+        <p>
+          Column Pinning in AG Grid for Angular allows users to fix one or more columns to the left or right side of the grid while the other columns scroll horizontally. This feature is useful when working with large datasets where users need to view specific columns at all times.
+
+          By default, column pinning is disabled in AG Grid, and all columns are free to scroll horizontally. To enable column pinning, you can configure the pinned property in the column definition. This property can be set to 'left' or 'right' to pin the column to the left or right side of the grid, respectively.
+
+          Here's an example of how to pin a column to the left:
+        </p>
+        <img class="img-responsive" src="assets/images/colpinTsfile.PNG">
+        <p>
+          In this example, the "Make" column is pinned to the left, so it will remain fixed in its position while the other columns scroll horizontally.
+
+          You can also pin multiple columns by setting the pinned property to 'left' or 'right' for each column. Additionally, you can customize the behavior of column pinning by configuring other properties in the column definition, such as pinnedRowCellRenderer and pinnedRowCellRendererParams.
+        </p>
+        <!-- <img class="img-responsive" src="assets/images/coldefHtmlfile.PNG">
+        <p>
+          
+        </p> -->
+      </section>
+
+      <div class="map" *ngFor="let map of col">
+        <div [innerHTML]="safeHTML(map.col_loc)"></div>
+      </div>
+      <!-- <section id="endpoints--city-spot-detail">
+        <h3>City Spot Detail</h3>
+        <p>…</p>
+      </section>
+      <section id="endpoints--city-icons-overview">
+        <h3>City Icons Overview</h3>
+        <p>…</p>
+      </section>
+      <section id="endpoints--city-icon-detail">
+        <h3>City Icon Detail</h3>
+        <p>…</p>
+      </section> -->
+    </section>
+    <section id="links">
+      <h2>Rows</h2>
+      <p>
+        <b>Row Sorting:</b> AG Grid allows the user to sort the rows of the grid by clicking on the column headers. To enable sorting, set the sortable property to true in the column definition. You can also set the initial sort order by specifying the sort property in the gridOptions. 
+      </p>
+      <p>
+        <b>Row Spanning:</b> Row spanning is a feature that allows the user to merge two or more rows into a single row. AG Grid provides row spanning functionality through the use of cell merging. To enable row spanning, set the enableCellMerging property to true in the grid options. 
+      </p>
+        
+      <p>
+        <b>Row Pinning:</b> Row pinning allows the user to fix certain rows in place while allowing others to scroll vertically. AG Grid provides row pinning functionality through the use of the pinnedTop and pinnedBottom properties in the Row Node object. The pinnedTop property can be set to true to pin the row to the top of the grid, and the pinnedBottom property can be set to true to pin the row to the bottom of the grid.
+      </p>
+         
+      <p>
+        <b>Row Dragging:</b> AG Grid allows the user to drag and drop rows to reorder them. To enable row dragging, set the rowDrag property to true in the grid options. You can also specify the rowDragManaged property to true to have AG Grid manage the row data as it is being dragged.
+      </p>
+         
+      <p>
+        <b>Row Animation:</b> AG Grid provides built-in animation support for rows, allowing developers to apply animations when rows are added, removed, or updated. To enable row animation, set the animateRows property to true in the grid options. AG Grid also provides a variety of animation options, such as rowAnimationTime and suppressColumnMoveAnimation, to customize the animation behavior. 
+      </p>
+        
+      <p>Here is an example of how to enable row sorting, spanning, pinning, dragging, and animation in AG Grid for Angular: </p>
+        
+       
+      <img class="img-responsive" src="assets/images/rowTsfile.PNG">
+    </section>
+    <section id="expanders">
+      <h2>Layout and Styling</h2>
+      <p>
+        Layout and Styling in AG Grid for Angular allows you to customize the appearance of the grid to fit your application's needs. You can customize the layout and styling of the grid by configuring various properties and CSS classes in the grid options and column definitions.
+
+        Here are some ways to customize the layout and styling of AG Grid:
+      </p>
+        <p>
+          <b>Grid Size:</b>
+          You can set the size of the grid by configuring the gridWidth and gridHeight properties in the grid options. You can also set these properties to a percentage value to make the grid responsive to the size of the container.
+        </p>
+        <img class="img-responsive" src="assets/images/lsgridTsfile.PNG">
+        <p>
+          <b>Column Width and Alignment: </b>       
+          You can set the width and alignment of columns by configuring the width and cellStyle properties in the column definitions. You can also set the alignment of the column header by configuring the headerClass property.
+        </p>
+        <img class="img-responsive" src="assets/images/lsalignTs.PNG">
+        <p>
+          <b>Row Styling: </b>
+          You can set the background color, font size, and font color of rows by configuring the rowStyle property in the grid options or column definitions. You can also conditionally style rows by configuring the getRowStyle property in the grid options.
+        </p>
+        <img class="img-responsive" src="assets/images/lsrowstyleTs.PNG">
+        <p>
+          <b>CSS Styling:</b>
+          You can customize the styling of the grid by adding your own CSS classes to the grid container and using the grid's built-in CSS classes. The grid provides various CSS classes for styling the header, rows, cells, and icons.
+        </p>
+        <img class="img-responsive" src="assets/images/lscssTs.PNG">
+
+     
+    </section>
+    <!-- <section id="filters">
+      <h2>Filters</h2>
+      <p>…</p>
+    </section> -->
+  </div>
+ 
+</main>

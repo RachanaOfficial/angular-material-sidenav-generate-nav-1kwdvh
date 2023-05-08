@@ -1,0 +1,44 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="isExpanded = !isExpanded">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 class="example-app-name">AG GRID</h1>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav
+    #sidenav
+    class="example-sidenav"
+    mode="side"
+    opened="true"
+    (mouseenter)="mouseenter()"
+    (mouseleave)="mouseleave()"
+  >
+    <mat-nav-list>
+        <a mat-list-item href="...">Overview</a>
+        <a mat-list-item href="...">Getting Started</a>
+        <a mat-list-item href="...">Angular Compatibility</a>
+        <a mat-list-item href="...">Columns</a>
+        <a mat-list-item href="...">Rows</a>
+        <a mat-list-item href="...">Layout and Styling</a>
+        <a mat-list-item href="...">Angular Compatibility</a>
+    </mat-nav-list>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="example-sidenav-content">
+    <div class="content">
+    
+      AG Grid is a powerful and flexible data grid for building enterprise web applications using Angular. It is designed to handle large and complex data sets, and provides a wide range of features and customization options to create high-performance grids.
+
+      AG Grid for Angular provides a set of Angular components that enable developers to easily integrate the grid into their applications. The components include the Grid component, which is the main component used to render the grid, and several other components that provide additional functionality, such as filtering, sorting, pagination, and grouping.
+      
+      AG Grid provides a rich set of features, such as row selection, column grouping, cell editing, cell formatting, and custom cell rendering. It also supports virtualization, which allows it to efficiently render large data sets without affecting the performance of the application.
+      
+      AG Grid can be easily customized to meet the specific requirements of different applications. It provides a range of customization options, such as custom cell editors and renderers, custom filtering and sorting, and the ability to style the grid using CSS.
+      
+      AG Grid also provides a comprehensive set of APIs that enable developers to programmatically interact with the grid, and events that allow them to respond to user actions and changes in the data.
+      
+      Overall, AG Grid is a powerful and flexible data grid for building enterprise web applications using Angular, with a rich set of features, customization options, and APIs.
+    </div>
+  </div>
+</mat-sidenav-container>
